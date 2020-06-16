@@ -13,14 +13,48 @@ let appData = {
     saving: false
 };
 
-// вопросы по 2 раза пользователю
-let question1One = prompt('Введите обязательную статью расходов в этом месяце', ''),
-    question2One = prompt('Во сколько обойдется?', ''),
-    question1Two = prompt('Введите обязательную статью расходов в этом месяце', ''),
-    question2Two = prompt('Во сколько обойдется?', '');
-// запись ответа пользвователя в объект
-appData.expenses[question1One] = question2One;
-appData.expenses[question1Two] = question2Two;
-console.log(appData.expenses);
+// вопросы по 2 раза пользователю, через цикл
+for( let i = 0; i < 2; i++) {
+    
+    let question1One = prompt('Введите обязательную статью расходов в этом месяце', ''),
+        question2One = +prompt('Во сколько обойдется?', '');
+    
+    if( (typeof(question1One)) === 'string' && (typeof(question1One)) != null && (typeof(question2One)) != null 
+    && question1One !== '' && question2One !== '' )
+    {
+        console.log("ok");
+        // запись ответа пользвователя в объект
+        appData[question1One] = question2One;
+    }
+    else 
+    {
+        console.log("not");
+        i--;
+    }
+} 
 
-alert(appData.budget / 30);
+//расчет ежедневного бюджета
+appData.moneyPerDay = appData.budget / 30;
+
+// вывод пользователю
+alert('Ежедневный бюджет: ' + appData.moneyPerDay);
+
+// вывод сообщения достатка
+let messageStat = '';
+if(appData.moneyPerDay < 4200)
+{
+    messageStat = 'Нищий человек';
+}
+else if(appData.moneyPerDay > 4200 && appData.moneyPerDay < 7000)
+{
+    messageStat = 'Полубедняк';
+}
+else if(appData.moneyPerDay > 7000)
+{
+    messageStat = 'Жить можно';
+}
+
+
+
+console.log(appData);
+alert(messageStat);
