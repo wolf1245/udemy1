@@ -1,3 +1,46 @@
+// ДЗ № 7
+// получаем кнопку старт
+let start = document.getElementById('start');
+
+// получаем класс Выводы иформации о бюджете
+let classResultTable = document.querySelector('.result-table');
+// получаем массив класса с элементами
+let arrayClassResultTable = classResultTable.querySelectorAll('div');
+
+// получаем класс времени и даты
+let classTimeData = document.querySelector('.time-data');
+// получаем массив класса с элементами
+let arrayClassTimeData = classTimeData.querySelectorAll('div');
+
+// получаем массив класса с элементами input Обязательных расходов
+let arrayClassExpensesItem = document.getElementsByClassName('expenses-item');
+
+// получаем массив класса с элементами input Необязательных расходов
+let arrayClassOptionalexpensesItem = document.querySelectorAll('.optionalexpenses-item');
+
+// получаем class где лежат кнопки
+let classButtons = document.querySelector('.data');
+// получаю все кнопки с класса Data
+let tagsButtons = classButtons.getElementsByTagName('button');
+// получаем кнопку Утвердить с обязательных рассходов
+let expensesItemBtnApprove = tagsButtons[0];
+// получаем кнопку Утвердить с необязательных рассходов
+let optionalExpensesBtnApprove = tagsButtons[1];
+// получаем кнопку Рассчитать
+let countBudgetBtnCalculate = tagsButtons[2];
+
+// получаем Статью возможного дохода
+let chooseIncome = document.querySelector('.choose-income');
+
+// получаем input с накомлениями
+let accumulationInput = document.querySelector('#savings');
+
+//получаем input с суммой накопления
+let sumInput = document.querySelector('#sum');
+
+//получаем input с процентами
+let percentInput = document.querySelector('#percent');
+// ДЗ № 7 end
 //делаем переменные глобальными
 let money, time;
 // ф-я с воросы и проверкой
